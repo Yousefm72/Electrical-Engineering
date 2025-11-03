@@ -105,6 +105,21 @@
             text-align: center;
         }
 
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .small-note {
             color: #666;
             font-size: 0.95rem;
@@ -132,16 +147,104 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
+
+        .answer-box {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .answer-box h2 {
+            color: white;
+            margin: 0 0 15px 0;
+            font-size: 2rem;
+        }
+
+        .answer-box p {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+            padding-right: 20px;
+        }
+
+        .toc a {
+            color: #764ba2;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s, padding-right 0.2s;
+            display: block;
+        }
+
+        .toc a:hover {
+            color: #667eea;
+            padding-right: 10px;
+        }
+
+        .toc a::before {
+            content: "▸ ";
+            color: #667eea;
+            margin-left: 5px;
+        }
     </style>
     <meta name="description" content="הסבר: מתי המכפלה הסקלרית של הוקטורים CA ו-BD באותו כיוון יכולה להיות אפס?">
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-button">← חזרה לדף הבית</a>
+        <div class="image-container">
+            <img src="Images/Alg01.JPG" alt="תמונה על וקטורים"> 
+        </div>
         <h1 id="top">האם אפשר ש-CA · BD = 0 כששניהם באותו כיוון?</h1>
 
+        <div class="answer-box">
+            <h2>תשובה</h2>
+            <p>TRUE (נכון) – רק אם לפחות אחד הווקטורים הוא וקטור אפס ✓</p>
+        </div>
+
+        <div class="toc">
+            <h2>תוכן עניינים</h2>
+            <ul>
+                <li><a href="#short-answer">התשובה הקצרה</a></li>
+                <li><a href="#dot-product-basics">רקע: מכפלה סקלרית</a></li>
+                <li><a href="#apply-to-ca-bd">יישום לשאלה עם CA ו-BD</a></li>
+                <li><a href="#examples">דוגמאות</a></li>
+                <li><a href="#intuitive-figure">איור אינטואיטיבי</a></li>
+                <li><a href="#summary">לסיכום</a></li>
+            </ul>
+        </div>
+
         <section>
-            <h2>התשובה הקצרה</h2>
+            <h2 id="short-answer">התשובה הקצרה</h2>
             <p>
                 כן. המכפלה הסקלרית של שני וקטורים <strong>באותו כיוון</strong> יכולה להיות שווה לאפס <strong>אך ורק</strong> כאשר לפחות אחד הוקטורים הוא 
                 <strong>וקטור האפס</strong> (כלומר גודלו 0).
@@ -154,14 +257,14 @@
         </section>
 
         <section>
-            <h2>רקע: מכפלה סקלרית</h2>
+            <h2 id="dot-product-basics">רקע: מכפלה סקלרית</h2>
             <p>המכפלה הסקלרית בין שני וקטורים u ו-v מוגדרת כך:</p>
             <div class="formula">u · v = ux vx + uy vy = |u| |v| cos(θ)</div>
             <p>כאשר θ היא הזווית בין הוקטורים. אם הוקטורים באותו כיוון → θ = 0° (או 180° אם בכיוונים הפוכים, ועדיין מקבילים).</p>
         </section>
 
         <section>
-            <h2>יישום לשאלה עם הוקטורים CA ו-BD</h2>
+            <h2 id="apply-to-ca-bd">יישום לשאלה עם הוקטורים CA ו-BD</h2>
             <p>
                 נסמן <strong>CA→</strong> = A − C ו-<strong>BD→</strong> = D − B. אם הוקטורים מקבילים (אותו כיוון או כיוון הפוך), אז:
             </p>
@@ -177,7 +280,7 @@
         </section>
 
         <section>
-            <h2>דוגמאות</h2>
+            <h2 id="examples">דוגמאות</h2>
             <div class="example-box">
                 <h3>דוגמה 1: וקטור אפס מול וקטור לא-אפס</h3>
                 <p>
@@ -208,7 +311,7 @@
         </section>
 
         <section>
-            <h2>איור אינטואיטיבי</h2>
+            <h2 id="intuitive-figure">איור אינטואיטיבי</h2>
             <div class="diagram">
                 <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -230,7 +333,7 @@
         </section>
 
         <section>
-            <h2>לסיכום</h2>
+            <h2 id="summary">לסיכום</h2>
             <ul>
                 <li><strong>אם CA→ ו-BD→ מקבילים ואינם אפס</strong> → המכפלה הסקלרית אינה אפס.</li>
                 <li><strong>המכפלה יכולה להיות אפס</strong> רק אם <strong>CA→ = 0</strong> או <strong>BD→ = 0</strong>.</li>

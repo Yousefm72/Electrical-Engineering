@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מכפלה סקלרית של וקטורים CA ו-BD באותו כיוון – מתי שווה לאפס?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.15rem;
+            background: #fff;
+            padding: 14px;
+            border-radius: 6px;
+            margin: 10px 0;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            direction: ltr;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border-right: 4px solid #667eea;
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .important {
+            background: #d1ecf1;
+            border-right: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .diagram {
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .small-note {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .back-to-top {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 30px;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+    <meta name="description" content="הסבר: מתי המכפלה הסקלרית של הוקטורים CA ו-BD באותו כיוון יכולה להיות אפס?">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← חזרה לדף הבית</a>
+        <h1 id="top">האם אפשר ש-CA · BD = 0 כששניהם באותו כיוון?</h1>
+
+        <section>
+            <h2>התשובה הקצרה</h2>
+            <p>
+                כן. המכפלה הסקלרית של שני וקטורים <strong>באותו כיוון</strong> יכולה להיות שווה לאפס <strong>אך ורק</strong> כאשר לפחות אחד הוקטורים הוא 
+                <strong>וקטור האפס</strong> (כלומר גודלו 0).
+            </p>
+            <div class="important">
+                <p><strong>עיקרון:</strong> אם הוקטורים מקבילים (θ = 0° או 180°) ואינם אפס, אז:</p>
+                <div class="formula">u · v = |u| |v| cos(θ) = ± |u| |v| ≠ 0</div>
+                <p class="small-note">לכן כדי לקבל 0 נדרש |u| = 0 או |v| = 0.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>רקע: מכפלה סקלרית</h2>
+            <p>המכפלה הסקלרית בין שני וקטורים u ו-v מוגדרת כך:</p>
+            <div class="formula">u · v = ux vx + uy vy = |u| |v| cos(θ)</div>
+            <p>כאשר θ היא הזווית בין הוקטורים. אם הוקטורים באותו כיוון → θ = 0° (או 180° אם בכיוונים הפוכים, ועדיין מקבילים).</p>
+        </section>
+
+        <section>
+            <h2>יישום לשאלה עם הוקטורים CA ו-BD</h2>
+            <p>
+                נסמן <strong>CA→</strong> = A − C ו-<strong>BD→</strong> = D − B. אם הוקטורים מקבילים (אותו כיוון או כיוון הפוך), אז:
+            </p>
+            <div class="formula">CA→ · BD→ = |CA→| |BD→| cos(θ) = ± |CA→| |BD→|</div>
+            <p>
+                מכאן ש-<strong>CA→ · BD→ = 0</strong> יקרה רק כאשר <strong>|CA→| = 0</strong> או <strong>|BD→| = 0</strong>.
+                כלומר, כאשר לפחות אחד הוקטורים הוא <strong>וקטור האפס</strong>:
+            </p>
+            <ul>
+                <li><strong>CA→ = 0</strong> כאשר C = A (אותה נקודה).</li>
+                <li><strong>BD→ = 0</strong> כאשר B = D (אותה נקודה).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>דוגמאות</h2>
+            <div class="example-box">
+                <h3>דוגמה 1: וקטור אפס מול וקטור לא-אפס</h3>
+                <p>
+                    נניח C = A = (1, 2) ⇒ <strong>CA→ = (0, 0)</strong>.
+                    כמו כן, B = (0, 0), D = (3, 4) ⇒ <strong>BD→ = (3, 4)</strong>.
+                </p>
+                <div class="formula">CA→ · BD→ = (0, 0) · (3, 4) = 0</div>
+                <p>הוקטורים “באותו כיוון” באופן טריוויאלי (ל-CA→ אין כיוון מוגדר כי הוא אפס), והתוצאה אפס.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 2: וקטורים מקבילים ולא-אפסיים</h3>
+                <p>
+                    נניח <strong>CA→ = (2, 2)</strong> ו-<strong>BD→ = (5, 5)</strong>. הוקטורים מקבילים ובאותו כיוון.
+                </p>
+                <div class="formula">CA→ · BD→ = 2·5 + 2·5 = 20 ≠ 0</div>
+                <p>כאן המכפלה אינה אפס, כי שני הוקטורים בעלי גודל חיובי.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 3: מקבילים בכיוונים הפוכים</h3>
+                <p>
+                    <strong>CA→ = (2, 2)</strong>, <strong>BD→ = (−5, −5)</strong>. הוקטורים מקבילים אך הפוכים בכיוון (θ = 180°).
+                </p>
+                <div class="formula">CA→ · BD→ = 2·(−5) + 2·(−5) = −20 ≠ 0</div>
+                <p>עדיין לא אפס. שוב, כדי לקבל אפס צריך שאחד מהם יהיה וקטור אפס.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>איור אינטואיטיבי</h2>
+            <div class="diagram">
+                <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                        </marker>
+                    </defs>
+                    <!-- ציר בסיסי -->
+                    <line x1="20" y1="80" x2="500" y2="80" stroke="#bbb" stroke-width="2"/>
+                    <!-- BD: חץ ארוך -->
+                    <line x1="60" y1="80" x2="240" y2="80" stroke="#667eea" stroke-width="4" marker-end="url(#arrow)"/>
+                    <text x="140" y="60" fill="#667eea" font-size="14" font-weight="bold">BD→</text>
+                    <!-- CA: נקודה (וקטור אפס) -->
+                    <circle cx="320" cy="80" r="5" fill="#17a2b8"/>
+                    <text x="335" y="85" fill="#17a2b8" font-size="14" font-weight="bold">CA→ = 0</text>
+                </svg>
+                <p class="small-note">כאשר אחד הוקטורים הוא אפס, המכפלה הסקלרית שווה לאפס – גם אם הוקטורים "באותו כיוון".</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>לסיכום</h2>
+            <ul>
+                <li><strong>אם CA→ ו-BD→ מקבילים ואינם אפס</strong> → המכפלה הסקלרית אינה אפס.</li>
+                <li><strong>המכפלה יכולה להיות אפס</strong> רק אם <strong>CA→ = 0</strong> או <strong>BD→ = 0</strong>.</li>
+                <li>וקטור אפס מתקבל כאשר נקודות ההתחלה והסיום שלו חופפות (למשל C = A או B = D).</li>
+            </ul>
+        </section>
+
+        <a href="#top" class="back-to-top">↑ חזרה למעלה</a>
+    </div>
+</body>
+</html>
+
+

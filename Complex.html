@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מספרים מרוכבים</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #f5576c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #f093fb;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border-right: 4px solid #f5576c;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-box h3 {
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-right: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            background: #d1ecf1;
+            border-right: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important h3 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+
+        .complex-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← חזרה לעמוד הבית</a>
+        <h1>מספרים מרוכבים</h1>
+
+        <section>
+            <h2>מהו מספר מרוכב?</h2>
+            <p>
+                מספר מרוכב הוא מספר המורכב מחלק ממשי וחלק מדומה. במתמטיקה ובהנדסה חשמלית במיוחד, 
+                מספרים מרוכבים הם כלי עוצמתי לייצוג והבנת תופעות פיזיקליות.
+            </p>
+            <p>
+                כל מספר מרוכב יכול להיכתב בצורה:
+            </p>
+            <div class="formula">
+                z = a + bi
+            </div>
+            <p>כאשר:</p>
+            <ul>
+                <li><span class="highlight">a</span> - החלק הממשי (Real Part)</li>
+                <li><span class="highlight">b</span> - החלק המדומה (Imaginary Part)</li>
+                <li><span class="highlight">i</span> - היחידה המדומה, המקיימת i² = -1</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>היחידה המדומה i</h2>
+            
+            <div class="important">
+                <h3>הגדרה בסיסית</h3>
+                <p>היחידה המדומה i מוגדרת כך:</p>
+                <div class="formula">
+                    i = √(-1)
+                </div>
+                <p>מכאן שהחזקות של i:</p>
+                <div class="formula">
+                    i¹ = i<br>
+                    i² = -1<br>
+                    i³ = -i<br>
+                    i⁴ = 1
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>הבלטות i</h3>
+                <p>הצורך במספרים מרוכבים התעורר כאשר ניסינו לפתור משוואות כמו:</p>
+                <div class="formula">
+                    x² = -1
+                </div>
+                <p>במספרים ממשיים אין פתרון למשוואה זו, אך עם היחידה המדומה i:</p>
+                <div class="formula">
+                    x² = -1 → x = ±i
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>עבוד עם מספרים מרוכבים</h2>
+
+            <div class="example-box">
+                <h3>דוגמה 1: כתיבת מספר מרוכב</h3>
+                <p>מספר מרוכב פשוט:</p>
+                <div class="formula">
+                    z = 3 + 4i
+                </div>
+                <p>כאשר: החלק הממשי הוא 3 והחלק המדומה הוא 4</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 2: חיבור מספרים מרוכבים</h3>
+                <p><strong>המשוואה:</strong> (2 + 3i) + (1 + 5i)</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחבר את החלקים הממשיים: 2 + 1 = 3</li>
+                    <li>נחבר את החלקים המדומים: 3i + 5i = 8i</li>
+                </ul>
+                <div class="formula">
+                    התוצאה: 3 + 8i
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 3: כפל מספרים מרוכבים</h3>
+                <p><strong>המשוואה:</strong> (2 + 3i) × (1 + 4i)</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>2 × 1 = 2</li>
+                    <li>2 × 4i = 8i</li>
+                    <li>3i × 1 = 3i</li>
+                    <li>3i × 4i = 12i² = 12 × (-1) = -12</li>
+                </ul>
+                <div class="formula">
+                    התוצאה: 2 + 8i + 3i - 12 = -10 + 11i
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 4: חיסור מספרים מרוכבים</h3>
+                <p><strong>המשוואה:</strong> (5 + 7i) - (2 + 3i)</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחסר את החלקים הממשיים: 5 - 2 = 3</li>
+                    <li>נחסר את החלקים המדומים: 7i - 3i = 4i</li>
+                </ul>
+                <div class="formula">
+                    התוצאה: 3 + 4i
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>הצגה פולרית של מספר מרוכב</h2>
+            
+            <div class="example-box">
+                <h3>קואורדינטות קרטזיות vs. פולריות</h3>
+                <p>מספר מרוכב יכול להיכתב בשתי צורות:</p>
+                <p><strong>צורה קרטזית:</strong></p>
+                <div class="formula">
+                    z = a + bi
+                </div>
+                <p><strong>צורה פולרית:</strong></p>
+                <div class="formula">
+                    z = r(cos θ + i sin θ) = re^(iθ)
+                </div>
+                <p>כאשר r הוא הגודל (magnitude) ו-θ היא הזווית (phase)</p>
+            </div>
+
+            <div class="example-box">
+                <h3>חישוב הגודל והזווית</h3>
+                <p>עבור z = a + bi:</p>
+                <ul>
+                    <li><span class="highlight">r = |z| = √(a² + b²)</span> - הגודל</li>
+                    <li><span class="highlight">θ = arctan(b/a)</span> - הזווית</li>
+                </ul>
+                <p>דוגמה: עבור z = 3 + 4i</p>
+                <ul>
+                    <li>r = √(3² + 4²) = √(9 + 16) = √25 = 5</li>
+                    <li>θ = arctan(4/3) ≈ 53.13°</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>הצמוד המרוכב</h2>
+            
+            <div class="important">
+                <h3>הגדרה</h3>
+                <p>הצמוד המרוכב של z = a + bi הוא:</p>
+                <div class="formula">
+                    z̅ = a - bi
+                </div>
+                <p>זה אומר שמשנים את הסימן של החלק המדומה בלבד.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמאות לצמוד</h3>
+                <p>אם z = 3 + 4i, אז:</p>
+                <div class="formula">
+                    z̅ = 3 - 4i
+                </div>
+                <p>כאשר מכפילים מספר מרוכב בצמוד שלו:</p>
+                <div class="formula">
+                    z × z̅ = (a + bi)(a - bi) = a² + b²
+                </div>
+                <p>זו תמיד מספר ממשי חיובי או אפס!</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>שימושים בהנדסה חשמלית</h2>
+
+            <div class="example-box">
+                <h3>זרמים חילופין (AC)</h3>
+                <p>מספרים מרוכבים משמשים להבנת מעגלי זרם חילופין:</p>
+                <ul>
+                    <li><span class="highlight">זרם: I = I₀ e^(iωt)</span></li>
+                    <li><span class="highlight">מתח: V = V₀ e^(iωt)</span></li>
+                    <li><span class="highlight">התנגדות (impedance): Z = R + iX</span></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>פהוסאזורים</h3>
+                <p>פהוסאזור הוא ייצוג גרפי של מספר מרוכב:</p>
+                <ul>
+                    <li>האורך של החץ מייצג את הגודל (amplitude)</li>
+                    <li>הזווית מייצגת את המופע (phase)</li>
+                    <li>זו דרך להבין מעגלי AC בצורה גרפית</li>
+                </ul>
+            </div>
+
+            <div class="important">
+                <h3>חוק אוהם למספרים מרוכבים</h3>
+                <div class="formula">
+                    V = I × Z
+                </div>
+                <p>כאשר Z היא ההתנגדות המורכבת (impedance) המכילה נגד (R), 
+                קבל (1/iωC), וסליל (iωL)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>מושגים נוספים</h2>
+
+            <div class="example-box">
+                <h3>שורש של מספר מרוכב</h3>
+                <p>לכל מספר מרוכב יש שורשים מרוכבים. דוגמה:</p>
+                <div class="formula">
+                    √(1 + i) = ? 
+                </div>
+                <p>יש שני שורשים מרוכבים למספר מרוכב לא אפס!</p>
+            </div>
+
+            <div class="example-box">
+                <h3>סכום ו- e^ix</h3>
+                <p>נוסחת אוילר הנפלאה:</p>
+                <div class="formula">
+                    e^(ix) = cos(x) + i sin(x)
+                </div>
+                <p>כאשר x = π, נקבל:</p>
+                <div class="formula">
+                    e^(iπ) = -1  →  e^(iπ) + 1 = 0
+                </div>
+                <p>זהו משוואת אוילר - "המשוואה היפה במתמטיקה"!</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>טיפים לשימוש במספרים מרוכבים</h2>
+            <ul>
+                <li><strong>זכור את i² = -1</strong> - זו העובדה המרכזית</li>
+                <li><strong>כפל בצמוד</strong> - כשעובדים עם מספרים מרוכבים, כפל בצמוד מסיר את החלק המדומה</li>
+                <li><strong>הצגה פולרית</strong> - כפל וחילוק קלים יותר בצורה פולרית</li>
+                <li><strong>נהוג במעגלים</strong> - בחישובי מעגלי AC, מספרים מרוכבים חיוניים</li>
+                <li><strong>גרפי לפני חישוב</strong> - ציור דיאגרמת פאזה עוזר להבין את הבעיה</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>
+

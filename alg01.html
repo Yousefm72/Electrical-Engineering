@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>וקטורים - הסבר מקיף</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border-right: 4px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            direction: ltr;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-right: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            background: #d1ecf1;
+            border-right: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important h3 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .vector-notation {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .diagram {
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .quarters-diagram {
+            background: #fff;
+            padding: 30px;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .quarters-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .quarter-label {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .quarter-1 { fill: #d4edda; color: #155724; }
+        .quarter-2 { fill: #fff3cd; color: #856404; }
+        .quarter-3 { fill: #f8d7da; color: #721c24; }
+        .quarter-4 { fill: #d1ecf1; color: #0c5460; }
+
+        .toc {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+            padding-right: 20px;
+        }
+
+        .toc a {
+            color: #764ba2;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s, padding-right 0.2s;
+            display: block;
+        }
+
+        .toc a:hover {
+            color: #667eea;
+            padding-right: 10px;
+        }
+
+        .toc a::before {
+            content: "▸ ";
+            color: #667eea;
+            margin-left: 5px;
+        }
+
+        .back-to-top {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 30px;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(0);
+        }
+
+        h2 {
+            scroll-margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← חזרה לדף הבית</a>
+        <h1 id="top">וקטורים - הסבר מקיף</h1>
+
+        <div class="image-container">
+            <img src="Images/Alg01.JPG" alt="תמונה על וקטורים">
+        </div>
+
+        <div class="toc">
+            <h2>תוכן עניינים</h2>
+            <ul>
+                <li><a href="#what-is-vector">מהו וקטור?</a></li>
+                <li><a href="#vector-representation">ייצוג של וקטורים</a></li>
+                <li><a href="#vector-magnitude">גודל של וקטור (Magnitude)</a></li>
+                <li><a href="#vector-operations">פעולות על וקטורים</a></li>
+                <li><a href="#unit-vector">וקטור יחידה (Unit Vector)</a></li>
+                <li><a href="#dot-product">מכפלה סקלרית (Dot Product)</a></li>
+                <li><a href="#cross-product">מכפלה וקטורית (Cross Product)</a></li>
+                <li><a href="#angle-between-vectors">זווית בין וקטורים</a></li>
+                <li><a href="#projections">השלכות (Projections)</a></li>
+                <li><a href="#engineering-applications">יישומים בהנדסה</a></li>
+                <li><a href="#calculation-tips">טיפים לחישובים</a></li>
+                <li><a href="#section1-solution">פתרון מפורט - סעיף 1 מהתמונה</a></li>
+                <li><a href="#quarters-diagram">דיאגרמת רבעים במערכת צירים</a></li>
+            </ul>
+        </div>
+
+        <section>
+            <h2 id="what-is-vector">מהו וקטור?</h2>
+            <p>
+                <span class="highlight">וקטור</span> הוא גודל פיזיקלי שיש לו גם גודל (magnitude) וגם כיוון (direction). 
+                בניגוד לסקלר, שהוא רק מספר (כמו טמפרטורה או מסה), וקטור מייצג כיוון במרחב.
+            </p>
+            <p>
+                וקטורים משמשים לתיאור תנועה, כוחות, מהירויות ועוד רבים אחרים בפיזיקה ובהנדסה. 
+                במתמטיקה, וקטור הוא אובייקט שיש לו מספר רכיבים (components) שמתארים אותו במרחב.
+            </p>
+            
+            <div class="example-box">
+                <h3>דוגמאות לוקטורים:</h3>
+                <ul>
+                    <li><strong>תזוזה</strong> - "עברתי 5 קילומטר צפונה"</li>
+                    <li><strong>מהירות</strong> - "המכונית נוסעת במהירות 100 קמ"ש לכיוון מזרח"</li>
+                    <li><strong>כוח</strong> - "פועל כוח של 10 ניוטון כלפי מעלה"</li>
+                    <li><strong>תאוצה</strong> - "תאוצת הכובד כלפי מטה"</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="vector-representation">ייצוג של וקטורים</h2>
+            
+            <div class="example-box">
+                <h3>ייצוג גיאומטרי</h3>
+                <p>
+                    וקטור מיוצג גיאומטרית כחץ (arrow). אורך החץ מייצג את הגודל של הווקטור, 
+                    וכיוון החץ מייצג את כיוון הווקטור.
+                </p>
+                <div class="diagram">
+                    <p>חץ עם נקודת התחלה ונקודת סיום</p>
+                    <p style="direction: ltr; font-family: monospace;">A → B</p>
+                    <p>הנקודה A היא נקודת המוצא (tail) והנקודה B היא נקודת הסיום (head)</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>ייצוג אלגברי</h3>
+                <p>וקטור יכול להיות מיוצג בכמה דרכים:</p>
+                
+                <div class="formula">
+                    <strong>1. סימון עם חץ מעל:</strong><br>
+                    <span class="vector-notation">v⃗</span> או <span class="vector-notation">AB⃗</span>
+                </div>
+
+                <div class="formula">
+                    <strong>2. רכיבים (Components):</strong><br>
+                    <span class="vector-notation">v = (vₓ, vᵧ)</span> במרחב דו-ממדי<br>
+                    <span class="vector-notation">v = (vₓ, vᵧ, vᵢ)</span> במרחב תלת-ממדי
+                </div>
+
+                <div class="formula">
+                    <strong>3. וקטורי יחידה (Unit vectors):</strong><br>
+                    <span class="vector-notation">v = vₓî + vᵧĵ + vᵢk̂</span><br>
+                    כאשר î, ĵ, k̂ הם וקטורי יחידה בכיווני x, y, z
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="vector-magnitude">גודל של וקטור (Magnitude)</h2>
+            
+            <div class="important">
+                <h3>חישוב הגודל</h3>
+                <p>הגודל של וקטור (הנקרא גם נורמה או אורך) מחושב באמצעות משפט פיתגורס:</p>
+                
+                <div class="formula">
+                    <strong>במרחב דו-ממדי:</strong><br>
+                    |v| = √(vₓ² + vᵧ²)
+                </div>
+
+                <div class="formula">
+                    <strong>במרחב תלת-ממדי:</strong><br>
+                    |v| = √(vₓ² + vᵧ² + vᵢ²)
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה:</h3>
+                <p>אם <span class="vector-notation">v = (3, 4)</span>, אז:</p>
+                <div class="formula">
+                    |v| = √(3² + 4²) = √(9 + 16) = √25 = 5
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="vector-operations">פעולות על וקטורים</h2>
+
+            <div class="example-box">
+                <h3>1. חיבור וקטורים</h3>
+                <p>חיבור וקטורים מתבצע על ידי חיבור הרכיבים המתאימים:</p>
+                <div class="formula">
+                    אם <span class="vector-notation">u = (uₓ, uᵧ)</span> ו-<span class="vector-notation">v = (vₓ, vᵧ)</span><br>
+                    אז: <span class="vector-notation">u + v = (uₓ + vₓ, uᵧ + vᵧ)</span>
+                </div>
+                <p><strong>דוגמה:</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">u = (2, 3)</span>, <span class="vector-notation">v = (1, 4)</span><br>
+                    <span class="vector-notation">u + v = (2+1, 3+4) = (3, 7)</span>
+                </div>
+                <p><strong>ייצוג גיאומטרי:</strong> מניחים את הוקטורים אחד אחרי השני (tail-to-head)</p>
+            </div>
+
+            <div class="example-box">
+                <h3>2. חיסור וקטורים</h3>
+                <p>חיסור וקטורים מתבצע על ידי חיסור הרכיבים המתאימים:</p>
+                <div class="formula">
+                    <span class="vector-notation">u - v = (uₓ - vₓ, uᵧ - vᵧ)</span>
+                </div>
+                <p><strong>דוגמה:</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">u = (5, 6)</span>, <span class="vector-notation">v = (2, 3)</span><br>
+                    <span class="vector-notation">u - v = (5-2, 6-3) = (3, 3)</span>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>3. כפל בסקלר (Scalar Multiplication)</h3>
+                <p>כאשר מכפילים וקטור במספר (סקלר), כל רכיב מוכפל באותו מספר:</p>
+                <div class="formula">
+                    אם <span class="vector-notation">v = (vₓ, vᵧ)</span> ו-<span class="highlight">k</span> הוא סקלר<br>
+                    אז: <span class="vector-notation">kv = (kvₓ, kvᵧ)</span>
+                </div>
+                <p><strong>דוגמה:</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">v = (3, 4)</span>, k = 2<br>
+                    <span class="vector-notation">2v = (2×3, 2×4) = (6, 8)</span>
+                </div>
+                <p><strong>תוצאה:</strong> הוקטור מתארך (אם k > 1) או מתקצר (אם 0 < k < 1), ואם k שלילי - הוקטור הופך כיוון.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="unit-vector">וקטור יחידה (Unit Vector)</h2>
+            
+            <div class="important">
+                <h3>מהו וקטור יחידה?</h3>
+                <p>
+                    וקטור יחידה הוא וקטור שגודלו הוא 1 בדיוק. הוא משמש לציין רק כיוון, ללא גודל.
+                </p>
+                <div class="formula">
+                    <strong>חישוב וקטור יחידה:</strong><br>
+                    û = v / |v|<br>
+                    כאשר û הוא וקטור היחידה ו-|v| הוא הגודל של v
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה:</h3>
+                <p>אם <span class="vector-notation">v = (3, 4)</span>, אז:</p>
+                <div class="formula">
+                    |v| = 5<br>
+                    û = (3/5, 4/5) = (0.6, 0.8)<br>
+                    בדיקה: |û| = √(0.6² + 0.8²) = √(0.36 + 0.64) = √1 = 1 ✓
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>וקטורי יחידה סטנדרטיים</h3>
+                <p>במערכת צירים קרטזית:</p>
+                <div class="formula">
+                    î = (1, 0) - כיוון ציר X החיובי<br>
+                    ĵ = (0, 1) - כיוון ציר Y החיובי<br>
+                    k̂ = (0, 0, 1) - כיוון ציר Z החיובי (בתלת-ממד)
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="dot-product">מכפלה סקלרית (Dot Product)</h2>
+            
+            <div class="important">
+                <h3>הגדרה</h3>
+                <p>מכפלה סקלרית בין שני וקטורים נותנת סקלר (מספר):</p>
+                <div class="formula">
+                    <strong>במרחב דו-ממדי:</strong><br>
+                    u · v = uₓvₓ + uᵧvᵧ
+                </div>
+                <div class="formula">
+                    <strong>במרחב תלת-ממדי:</strong><br>
+                    u · v = uₓvₓ + uᵧvᵧ + uᵢvᵢ
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>משמעות גיאומטרית</h3>
+                <p>המכפלה הסקלרית קשורה לזווית בין הוקטורים:</p>
+                <div class="formula">
+                    u · v = |u||v|cos(θ)<br>
+                    כאשר θ היא הזווית בין הוקטורים
+                </div>
+                <p><strong>תוצאות מיוחדות:</strong></p>
+                <ul>
+                    <li>אם u · v = 0 → הוקטורים ניצבים זה לזה (אורתוגונליים)</li>
+                    <li>אם u · v > 0 → הזווית חדה (פחות מ-90 מעלות)</li>
+                    <li>אם u · v < 0 → הזווית קהה (יותר מ-90 מעלות)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה:</h3>
+                <div class="formula">
+                    <span class="vector-notation">u = (2, 3)</span>, <span class="vector-notation">v = (4, 1)</span><br>
+                    u · v = (2×4) + (3×1) = 8 + 3 = 11
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="cross-product">מכפלה וקטורית (Cross Product)</h2>
+            
+            <div class="important">
+                <h3>הגדרה</h3>
+                <p>מכפלה וקטורית בין שני וקטורים נותנת וקטור חדש שניצב לשניהם:</p>
+                <div class="formula">
+                    <strong>במרחב תלת-ממדי:</strong><br>
+                    u × v = |u||v|sin(θ)n̂<br>
+                    כאשר n̂ הוא וקטור יחידה הניצב ל-u ול-v
+                </div>
+                <div class="formula">
+                    <strong>חישוב באמצעות דטרמיננטה:</strong><br>
+                    u × v = (uᵧvᵢ - uᵢvᵧ)î - (uₓvᵢ - uᵢvₓ)ĵ + (uₓvᵧ - uᵧvₓ)k̂
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>משמעות גיאומטרית</h3>
+                <ul>
+                    <li>הוקטור המתקבל ניצב לשני הוקטורים המקוריים</li>
+                    <li>גודל הוקטור שווה לשטח המקבילית שהקטורים יוצרים</li>
+                    <li>כיוון הוקטור נקבע לפי כלל יד ימין</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="angle-between-vectors">זווית בין וקטורים</h2>
+            
+            <div class="example-box">
+                <h3>חישוב הזווית</h3>
+                <p>ניתן לחשב את הזווית בין שני וקטורים באמצעות המכפלה הסקלרית:</p>
+                <div class="formula">
+                    cos(θ) = (u · v) / (|u||v|)<br>
+                    θ = arccos[(u · v) / (|u||v|)]
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה:</h3>
+                <div class="formula">
+                    <span class="vector-notation">u = (1, 0)</span>, <span class="vector-notation">v = (1, 1)</span><br>
+                    u · v = 1×1 + 0×1 = 1<br>
+                    |u| = 1, |v| = √2<br>
+                    cos(θ) = 1 / (1 × √2) = 1/√2<br>
+                    θ = 45°
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="projections">השלכות (Projections)</h2>
+            
+            <div class="example-box">
+                <h3>השלכה של וקטור על וקטור אחר</h3>
+                <p>ההשלכה של וקטור u על וקטור v נותנת את הרכיב של u בכיוון v:</p>
+                <div class="formula">
+                    <strong>השלכה סקלרית:</strong><br>
+                    projᵥ(u) = (u · v) / |v|
+                </div>
+                <div class="formula">
+                    <strong>השלכה וקטורית:</strong><br>
+                    projᵥ(u) = [(u · v) / |v|²] v
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="engineering-applications">יישומים בהנדסה</h2>
+            
+            <div class="important">
+                <h3>שימושים מעשיים</h3>
+                <ul>
+                    <li><strong>סטטיקה ודינמיקה:</strong> חישוב כוחות ומומנטים</li>
+                    <li><strong>אלקטרומגנטיות:</strong> שדות חשמליים ומגנטיים הם וקטוריים</li>
+                    <li><strong>עיבוד אותות:</strong> ייצוג אותות מורכבים</li>
+                    <li><strong>גרפיקה ממוחשבת:</strong> חישוב תנועה, אור ותאורה</li>
+                    <li><strong>מכניקה:</strong> חישוב מהירויות ותאוצות</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="calculation-tips">טיפים לחישובים</h2>
+            <ul>
+                <li><strong>תמיד בדוק יחידות</strong> - וודא שכל הרכיבים באותן יחידות</li>
+                <li><strong>שימוש בדיאגרמות</strong> - צייר את הוקטורים כדי להבין את הבעיה</li>
+                <li><strong>רכיבים לפי צירים</strong> - פרק וקטורים לרכיבים x, y, z</li>
+                <li><strong>שימוש בוקטורי יחידה</strong> - זה עוזר בחישובים מורכבים</li>
+                <li><strong>בדיקת תוצאות</strong> - ודא שהגודל והכיוון הגיוניים</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="section1-solution">פתרון מפורט - סעיף 1 מהתמונה</h2>
+            
+            <div class="important">
+                <h3>הבנת השאלה בסעיף 1</h3>
+                <p>
+                    סעיף 1 בתמונה מציג בעיה בסיסית בעבודה עם וקטורים. כדי לפתור את הבעיה, 
+                    עלינו להבין את הנתונים הנתונים ולהבין מה מבקשים מאיתנו למצוא.
+                </p>
+                <p>
+                    בעיות וקטוריות טיפוסיות בסעיף 1 כוללות:
+                </p>
+                <ul>
+                    <li>מציאת רכיבי וקטור כאשר נתון גודל וזווית</li>
+                    <li>מציאת וקטור בין שתי נקודות</li>
+                    <li>המרה בין ייצוגים שונים של וקטורים</li>
+                    <li>חישוב גודל וקטור מרכיביו</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>סוג בעיה 1: מציאת רכיבי וקטור מגודל וזווית</h3>
+                <p><strong>תרחיש טיפוסי:</strong> נתון וקטור שגודלו |v| וזווית θ שלו עם ציר X החיובי.</p>
+                <p><strong>מה צריך למצוא:</strong> את הרכיבים vₓ ו-vᵧ של הוקטור.</p>
+                
+                <div class="formula">
+                    <strong>נוסחאות יסוד:</strong><br>
+                    vₓ = |v| × cos(θ)<br>
+                    vᵧ = |v| × sin(θ)
+                </div>
+
+                <h4 style="color: #764ba2; margin-top: 20px;">פתרון מפורט שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: זיהוי הנתונים</strong></p>
+                <ul>
+                    <li>גודל הוקטור: |v| = [הערך מהשאלה]</li>
+                    <li>זווית עם ציר X: θ = [הערך מהשאלה]</li>
+                </ul>
+
+                <p><strong>שלב 2: חישוב רכיב X (vₓ)</strong></p>
+                <div class="formula">
+                    vₓ = |v| × cos(θ)
+                </div>
+                <p>מציבים את הערכים:</p>
+                <div class="formula">
+                    vₓ = [|v|] × cos([θ]°)
+                </div>
+                <p>חישוב:</p>
+                <div class="formula">
+                    vₓ = [|v|] × [ערך הקוסינוס] = [תוצאה]
+                </div>
+
+                <p><strong>שלב 3: חישוב רכיב Y (vᵧ)</strong></p>
+                <div class="formula">
+                    vᵧ = |v| × sin(θ)
+                </div>
+                <p>מציבים את הערכים:</p>
+                <div class="formula">
+                    vᵧ = [|v|] × sin([θ]°)
+                </div>
+                <p>חישוב:</p>
+                <div class="formula">
+                    vᵧ = [|v|] × [ערך הסינוס] = [תוצאה]
+                </div>
+
+                <p><strong>שלב 4: כתיבת התשובה הסופית</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">v = (vₓ, vᵧ) = ([תוצאה vₓ], [תוצאה vᵧ])</span>
+                </div>
+
+                <p><strong>שלב 5: בדיקה (אופציונלי)</strong></p>
+                <p>ניתן לבדוק את התשובה על ידי חישוב הגודל:</p>
+                <div class="formula">
+                    |v| = √(vₓ² + vᵧ²) = √([vₓ]² + [vᵧ]²) = [צריך להתאים לערך המקורי]
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה מספרית מפורטת</h3>
+                <p><strong>השאלה:</strong> מצא את הרכיבים של וקטור שגודלו 10 יחידות וזווית שלו עם ציר X החיובי היא 30°.</p>
+                
+                <h4 style="color: #764ba2; margin-top: 15px;">פתרון שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: זיהוי הנתונים</strong></p>
+                <ul>
+                    <li>גודל הוקטור: |v| = 10</li>
+                    <li>זווית: θ = 30°</li>
+                </ul>
+
+                <p><strong>שלב 2: חישוב רכיב X</strong></p>
+                <div class="formula">
+                    vₓ = |v| × cos(θ)<br>
+                    vₓ = 10 × cos(30°)<br>
+                    vₓ = 10 × (√3/2)<br>
+                    vₓ = 10 × 0.866<br>
+                    vₓ = 8.66
+                </div>
+
+                <p><strong>שלב 3: חישוב רכיב Y</strong></p>
+                <div class="formula">
+                    vᵧ = |v| × sin(θ)<br>
+                    vᵧ = 10 × sin(30°)<br>
+                    vᵧ = 10 × (1/2)<br>
+                    vᵧ = 10 × 0.5<br>
+                    vᵧ = 5.0
+                </div>
+
+                <p><strong>שלב 4: כתיבת התשובה</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">v = (8.66, 5.0)</span>
+                </div>
+
+                <p><strong>שלב 5: בדיקה</strong></p>
+                <div class="formula">
+                    |v| = √(8.66² + 5.0²)<br>
+                    |v| = √(75.0 + 25.0)<br>
+                    |v| = √100<br>
+                    |v| = 10 ✓
+                </div>
+                <p>הבדיקה מאשרת שהתשובה נכונה!</p>
+            </div>
+
+            <div class="example-box">
+                <h3>סוג בעיה 2: מציאת וקטור בין שתי נקודות</h3>
+                <p><strong>תרחיש טיפוסי:</strong> נתונות שתי נקודות A(x₁, y₁) ו-B(x₂, y₂). מצא את הוקטור AB⃗.</p>
+                
+                <div class="formula">
+                    <strong>נוסחה יסודית:</strong><br>
+                    AB⃗ = B - A = (x₂ - x₁, y₂ - y₁)
+                </div>
+
+                <h4 style="color: #764ba2; margin-top: 20px;">פתרון מפורט שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: זיהוי הנקודות</strong></p>
+                <ul>
+                    <li>נקודת המוצא A: (x₁, y₁) = ([ערכים])</li>
+                    <li>נקודת הסיום B: (x₂, y₂) = ([ערכים])</li>
+                </ul>
+
+                <p><strong>שלב 2: חישוב רכיב X של הוקטור</strong></p>
+                <div class="formula">
+                    ABₓ = x₂ - x₁
+                </div>
+                <div class="formula">
+                    ABₓ = [x₂] - [x₁] = [תוצאה]
+                </div>
+
+                <p><strong>שלב 3: חישוב רכיב Y של הוקטור</strong></p>
+                <div class="formula">
+                    ABᵧ = y₂ - y₁
+                </div>
+                <div class="formula">
+                    ABᵧ = [y₂] - [y₁] = [תוצאה]
+                </div>
+
+                <p><strong>שלב 4: כתיבת התשובה הסופית</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">AB⃗ = (ABₓ, ABᵧ) = ([תוצאה], [תוצאה])</span>
+                </div>
+
+                <p><strong>שלב 5: חישוב הגודל (אם נדרש)</strong></p>
+                <div class="formula">
+                    |AB⃗| = √(ABₓ² + ABᵧ²)
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה מספרית מפורטת - וקטור בין נקודות</h3>
+                <p><strong>השאלה:</strong> מצא את הוקטור מהנקודה A(2, 3) לנקודה B(7, 8) וחושב את גודלו.</p>
+                
+                <h4 style="color: #764ba2; margin-top: 15px;">פתרון שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: זיהוי הנקודות</strong></p>
+                <ul>
+                    <li>נקודת המוצא A: (2, 3)</li>
+                    <li>נקודת הסיום B: (7, 8)</li>
+                </ul>
+
+                <p><strong>שלב 2: חישוב רכיב X</strong></p>
+                <div class="formula">
+                    ABₓ = x₂ - x₁<br>
+                    ABₓ = 7 - 2 = 5
+                </div>
+
+                <p><strong>שלב 3: חישוב רכיב Y</strong></p>
+                <div class="formula">
+                    ABᵧ = y₂ - y₁<br>
+                    ABᵧ = 8 - 3 = 5
+                </div>
+
+                <p><strong>שלב 4: כתיבת הוקטור</strong></p>
+                <div class="formula">
+                    <span class="vector-notation">AB⃗ = (5, 5)</span>
+                </div>
+
+                <p><strong>שלב 5: חישוב הגודל</strong></p>
+                <div class="formula">
+                    |AB⃗| = √(5² + 5²)<br>
+                    |AB⃗| = √(25 + 25)<br>
+                    |AB⃗| = √50<br>
+                    |AB⃗| = 5√2 ≈ 7.07 יחידות
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>סוג בעיה 3: מציאת גודל וזווית מרכיבים</h3>
+                <p><strong>תרחיש טיפוסי:</strong> נתון וקטור ברכיבים <span class="vector-notation">v = (vₓ, vᵧ)</span>. מצא את גודלו ואת הזווית שלו עם ציר X.</p>
+                
+                <h4 style="color: #764ba2; margin-top: 20px;">פתרון מפורט שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: חישוב הגודל</strong></p>
+                <div class="formula">
+                    |v| = √(vₓ² + vᵧ²)
+                </div>
+                <div class="formula">
+                    |v| = √([vₓ]² + [vᵧ]²) = [תוצאה]
+                </div>
+
+                <p><strong>שלב 2: חישוב הזווית</strong></p>
+                <div class="formula">
+                    tan(θ) = vᵧ / vₓ<br>
+                    θ = arctan(vᵧ / vₓ)
+                </div>
+                <div class="formula">
+                    θ = arctan([vᵧ] / [vₓ]) = [תוצאה]°
+                </div>
+
+                <p><strong>שלב 3: התחשבות ברבעים</strong></p>
+                <ul>
+                    <li>אם vₓ > 0 ו-vᵧ > 0 → θ ברבע הראשון (0° עד 90°)</li>
+                    <li>אם vₓ < 0 ו-vᵧ > 0 → θ ברבע השני (90° עד 180°), מוסיפים 180°</li>
+                    <li>אם vₓ < 0 ו-vᵧ < 0 → θ ברבע השלישי (180° עד 270°), מוסיפים 180°</li>
+                    <li>אם vₓ > 0 ו-vᵧ < 0 → θ ברבע הרביעי (270° עד 360°), מוסיפים 360°</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה מספרית מפורטת - מציאת גודל וזווית</h3>
+                <p><strong>השאלה:</strong> נתון <span class="vector-notation">v = (3, 4)</span>. מצא את גודל הוקטור ואת הזווית שלו.</p>
+                
+                <h4 style="color: #764ba2; margin-top: 15px;">פתרון שלב אחר שלב:</h4>
+                
+                <p><strong>שלב 1: חישוב הגודל</strong></p>
+                <div class="formula">
+                    |v| = √(3² + 4²)<br>
+                    |v| = √(9 + 16)<br>
+                    |v| = √25 = 5
+                </div>
+
+                <p><strong>שלב 2: חישוב הזווית</strong></p>
+                <div class="formula">
+                    tan(θ) = vᵧ / vₓ = 4 / 3 = 1.333<br>
+                    θ = arctan(1.333) ≈ 53.13°
+                </div>
+
+                <p><strong>שלב 3: בדיקת הרבע</strong></p>
+                <p>vₓ = 3 > 0 ו-vᵧ = 4 > 0 → הוקטור ברבע הראשון, אז:</p>
+                <div class="formula">
+                    θ = 53.13°
+                </div>
+
+                <p><strong>תשובה סופית:</strong></p>
+                <div class="formula">
+                    |v| = 5 יחידות<br>
+                    θ = 53.13°
+                </div>
+            </div>
+
+            <div class="important">
+                <h3>טיפים חשובים לפתרון בעיות וקטוריות</h3>
+                <ul>
+                    <li><strong>תמיד צייר דיאגרמה</strong> - זה עוזר להבין את הבעיה ויזואלית</li>
+                    <li><strong>שימו לב לסימנים</strong> - רכיבים שליליים חשובים מאוד</li>
+                    <li><strong>בדקו יחידות</strong> - ודאו שכל הגדלים באותן יחידות</li>
+                    <li><strong>השתמשו במחשבון מדעי</strong> - לחישוב פונקציות טריגונומטריות</li>
+                    <li><strong>עשו בדיקה</strong> - תמיד בדקו את התשובה על ידי חישוב הפוך</li>
+                    <li><strong>תנו תשובה מלאה</strong> - כללו יחידות וזוויות במעלות או רדיאנים</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="quarters-diagram">דיאגרמת רבעים במערכת צירים</h2>
+            
+            <div class="quarters-diagram">
+                <h3>התחשבות ברבעים בעבודה עם וקטורים</h3>
+                <p style="margin-bottom: 25px;">
+                    כאשר מחשבים זווית של וקטור מרכיביו, חשוב לקחת בחשבון את הרבע שבו הוקטור נמצא. 
+                    הסימנים של vₓ ו-vᵧ קובעים את הרבע:
+                </p>
+                
+                <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background quarters -->
+                    <rect x="300" y="0" width="300" height="300" class="quarter-1" opacity="0.3"/>
+                    <rect x="0" y="0" width="300" height="300" class="quarter-2" opacity="0.3"/>
+                    <rect x="0" y="300" width="300" height="300" class="quarter-3" opacity="0.3"/>
+                    <rect x="300" y="300" width="300" height="300" class="quarter-4" opacity="0.3"/>
+                    
+                    <!-- Axes -->
+                    <line x1="0" y1="300" x2="600" y2="300" stroke="#333" stroke-width="3"/>
+                    <line x1="300" y1="0" x2="300" y2="600" stroke="#333" stroke-width="3"/>
+                    
+                    <!-- Axis arrows -->
+                    <polygon points="590,295 600,300 590,305" fill="#333"/>
+                    <polygon points="295,10 300,0 305,10" fill="#333"/>
+                    
+                    <!-- Axis labels -->
+                    <text x="580" y="290" font-size="24" font-weight="bold" fill="#333">X</text>
+                    <text x="310" y="25" font-size="24" font-weight="bold" fill="#333">Y</text>
+                    <text x="570" y="320" font-size="18" fill="#666">+</text>
+                    <text x="315" y="25" font-size="18" fill="#666">+</text>
+                    
+                    <!-- Quarter labels -->
+                    <text x="450" y="150" font-size="22" font-weight="bold" fill="#155724">רבע I</text>
+                    <text x="450" y="180" font-size="18" fill="#155724">vₓ > 0, vᵧ > 0</text>
+                    <text x="450" y="210" font-size="18" fill="#155724">0° עד 90°</text>
+                    
+                    <text x="150" y="150" font-size="22" font-weight="bold" fill="#856404">רבע II</text>
+                    <text x="150" y="180" font-size="18" fill="#856404">vₓ &lt; 0, vᵧ > 0</text>
+                    <text x="150" y="210" font-size="18" fill="#856404">90° עד 180°</text>
+                    
+                    <text x="150" y="450" font-size="22" font-weight="bold" fill="#721c24">רבע III</text>
+                    <text x="150" y="480" font-size="18" fill="#721c24">vₓ &lt; 0, vᵧ &lt; 0</text>
+                    <text x="150" y="510" font-size="18" fill="#721c24">180° עד 270°</text>
+                    
+                    <text x="450" y="450" font-size="22" font-weight="bold" fill="#0c5460">רבע IV</text>
+                    <text x="450" y="480" font-size="18" fill="#0c5460">vₓ > 0, vᵧ &lt; 0</text>
+                    <text x="450" y="510" font-size="18" fill="#0c5460">270° עד 360°</text>
+                    
+                    <!-- Example vectors in each quarter -->
+                    <line x1="300" y1="300" x2="450" y2="150" stroke="#155724" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="300" y1="300" x2="150" y2="150" stroke="#856404" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="300" y1="300" x2="150" y2="450" stroke="#721c24" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="300" y1="300" x2="450" y2="450" stroke="#0c5460" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Arrow marker definition -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+                        </marker>
+                    </defs>
+                </svg>
+                
+                <div class="important" style="margin-top: 25px;">
+                    <h3>כללי זיהוי רבעים:</h3>
+                    <ul>
+                        <li><strong>רבע I:</strong> vₓ > 0, vᵧ > 0 → הזווית θ נשארת כמו שהיא (0° עד 90°)</li>
+                        <li><strong>רבע II:</strong> vₓ < 0, vᵧ > 0 → מוסיפים 180° לזווית מהמחשבון (90° עד 180°)</li>
+                        <li><strong>רבע III:</strong> vₓ < 0, vᵧ < 0 → מוסיפים 180° לזווית מהמחשבון (180° עד 270°)</li>
+                        <li><strong>רבע IV:</strong> vₓ > 0, vᵧ < 0 → מוסיפים 360° לזווית מהמחשבון (270° עד 360°)</li>
+                    </ul>
+                    <p style="margin-top: 15px;">
+                        <strong>מדוע זה חשוב?</strong> הפונקציה arctan מחזירה ערך בין -90° ל-90° בלבד. 
+                        כדי לקבל את הזווית הנכונה במעגל המלא (0° עד 360°), צריך להוסיף 180° או 360° 
+                        בהתאם לסימנים של הרכיבים.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <a href="#top" class="back-to-top">↑ חזרה למעלה</a>
+
+    </div>
+</body>
+</html>
+

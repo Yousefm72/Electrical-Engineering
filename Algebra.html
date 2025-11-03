@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מבוא לאלגברה</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .example-box {
+            background: #f8f9fa;
+            border-right: 4px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .example-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-right: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .important {
+            background: #d1ecf1;
+            border-right: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important h3 {
+            color: #17a2b8;
+            margin-top: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">← Return to Home</a>
+        <h1>מבוא לאלגברה</h1>
+
+        <section>
+            <h2>מהי אלגברה?</h2>
+            <p>
+                אלגברה היא ענף במתמטיקה שעוסק בסמלים (variables) ובמספרים, וביחסים ביניהם. 
+                בלמדנו אלגברה, אנו לומדים איך לעבוד עם משוואות ונוסחאות, ואיך לפתור בעיות מתמטיות 
+                בצורה כללית.
+            </p>
+            <p>
+                האלגברה משתמשת באותיות (כמו x, y, a, b) כדי לייצג כמויות לא ידועות או משתנים. 
+                זה מאפשר לנו לפתור בעיות בצורה כללית ולא רק עבור מספרים ספציפיים.
+            </p>
+        </section>
+
+        <section>
+            <h2>מושגים בסיסיים באלגברה</h2>
+            
+            <div class="example-box">
+                <h3>משתנים (Variables)</h3>
+                <p>משתנה הוא סמל המייצג מספר לא ידוע. בדרך כלל משתמשים באותיות לטיניות כמו:</p>
+                <ul>
+                    <li><span class="highlight">x</span> - המשתנה הנפוץ ביותר</li>
+                    <li><span class="highlight">y, a, b, c</span> - משתנים נוספים</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>מקדמים (Coefficients)</h3>
+                <p>המספר שמופיע לפני משתנה נקרא מקדם.</p>
+                <div class="formula">
+                    3x + 5
+                </div>
+                <p>כאן <span class="highlight">3</span> הוא המקדם של x.</p>
+            </div>
+
+            <div class="example-box">
+                <h3>ביטוי אלגברי (Algebraic Expression)</h3>
+                <p>ביטוי אלגברי הוא שילוב של מספרים, משתנים ופעולות:</p>
+                <div class="formula">
+                    2x + 3y - 7
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3>משוואה (Equation)</h3>
+                <p>משוואה היא הצהרה ששני ביטויים שווים זה לזה:</p>
+                <div class="formula">
+                    2x + 5 = 11
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>דוגמאות ופתרונות</h2>
+
+            <div class="example-box">
+                <h3>דוגמה 1: פתרון משוואה פשוטה</h3>
+                <p><strong>המשוואה:</strong> x + 5 = 12</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחסר 5 משני הצדדים: x + 5 - 5 = 12 - 5</li>
+                    <li>x = 7</li>
+                </ul>
+                <p><strong>בדיקה:</strong> 7 + 5 = 12 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 2: פתרון עם כפל</h3>
+                <p><strong>המשוואה:</strong> 3x = 15</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחלק את שני הצדדים ב-3: 3x ÷ 3 = 15 ÷ 3</li>
+                    <li>x = 5</li>
+                </ul>
+                <p><strong>בדיקה:</strong> 3 × 5 = 15 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 3: משוואה מורכבת יותר</h3>
+                <p><strong>המשוואה:</strong> 2x + 7 = 21</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחסר 7 משני הצדדים: 2x + 7 - 7 = 21 - 7</li>
+                    <li>2x = 14</li>
+                    <li>נחלק ב-2: x = 7</li>
+                </ul>
+                <p><strong>בדיקה:</strong> 2 × 7 + 7 = 14 + 7 = 21 ✓</p>
+            </div>
+
+            <div class="example-box">
+                <h3>דוגמה 4: משוואה עם משתנים משני הצדדים</h3>
+                <p><strong>המשוואה:</strong> 3x + 2 = x + 10</p>
+                <p><strong>פתרון:</strong></p>
+                <ul>
+                    <li>נחסר x משני הצדדים: 3x + 2 - x = x + 10 - x</li>
+                    <li>2x + 2 = 10</li>
+                    <li>נחסר 2 משני הצדדים: 2x = 8</li>
+                    <li>נחלק ב-2: x = 4</li>
+                </ul>
+                <p><strong>בדיקה:</strong> 3 × 4 + 2 = 14 ✓ ו-4 + 10 = 14 ✓</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>חוקים חשובים באלגברה</h2>
+            
+            <div class="important">
+                <h3>חוק החילוף (Commutative Law)</h3>
+                <p>סדר המספרים לא משנה בפעולות חיבור וכפל:</p>
+                <div class="formula">a + b = b + a</div>
+                <div class="formula">a × b = b × a</div>
+            </div>
+
+            <div class="important">
+                <h3>חוק החיבור (Associative Law)</h3>
+                <p>קיבוץ המספרים לא משנה את התוצאה:</p>
+                <div class="formula">(a + b) + c = a + (b + c)</div>
+                <div class="formula">(a × b) × c = a × (b × c)</div>
+            </div>
+
+            <div class="important">
+                <h3>חוק הפילוג (Distributive Law)</h3>
+                <p>כפל מתחלק על פני חיבור:</p>
+                <div class="formula">a × (b + c) = a × b + a × c</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>ביטויים אלגבריים שכיחים</h2>
+
+            <div class="example-box">
+                <h3>חיבור</h3>
+                <div class="formula">x + y</div>
+                <p>סכום שני משתנים</p>
+            </div>
+
+            <div class="example-box">
+                <h3>חיסור</h3>
+                <div class="formula">a - b</div>
+                <p>הפרש בין שני משתנים</p>
+            </div>
+
+            <div class="example-box">
+                <h3>כפל</h3>
+                <div class="formula">xy או x × y</div>
+                <p>מכפלה של שני משתנים</p>
+            </div>
+
+            <div class="example-box">
+                <h3>חילוק</h3>
+                <div class="formula">x ÷ y או x/y</div>
+                <p>חילוק של שני משתנים</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>טיפים לפתרון בעיות אלגבריות</h2>
+            <ul>
+                <li><strong>בדוק תמיד את הפתרון</strong> - החלף את הערך שמצאת חזרה למשוואה המקורית</li>
+                <li><strong>עבוד בצעדים</strong> - אל תמהר, בצע פעולה אחת בכל פעם</li>
+                <li><strong>פעל על שני הצדדים</strong> - כל פעולה שתבצע, בצע אותה על שני צדדי המשוואה</li>
+                <li><strong>סדר נכון</strong> - עדיף לפשט ביטויים לפני פתרון המשוואה</li>
+                <li><strong>היזהר מסימנים</strong> - עקוב אחר סימני הפלוס (+) והמינוס (-)</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>
+
